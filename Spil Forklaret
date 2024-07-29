@@ -1,0 +1,56 @@
+# STATS FORKLARET
+
+Angreb:
+- Angreb differencen (mod forsvar) giver 2,5% bonus i angreb
+
+Midtbane:
+- Midtbane differencen giver 5% bonus i chancen for at få boldbesiddelse
+
+Forsvar:
+- Forsvar differencen er det omvendte af angreb.
+
+Fysik:
+- Fysik differencen giver 0.66% bonus i chancen for at få boldbesiddelse
+- Fysik giver udholdenhed
+  - Hvis et hold har mere energi end det modsatte hold, øger de chancen for at få boldbesiddelse
+
+Pace:
+- Pace differencen øger chancen for at lave et kontra angreb, hvis modstanderens angreb fejler med 1.5%
+
+Aflevering:
+- I kontra angreb giver den +2% pr aflevering point
+- I normalt angreb giver den +2% pr aflevering point
+- Afleverings differencen giver +1% 
+
+# SPIL FORKLARET
+
+Før en sæson går igang skal hver spiller lave et hold. Et hold består af:
+- Et navn
+- Hjemmebane- og udebane- trøje farve
+- 6 statistikker
+    - Angreb
+    - Midtbane
+    - Forsvar
+    - Pace
+    - Fysik
+    - Aflevering
+- 11 tilfældig generet spillere
+    - 3 angribere
+    - 3 midtanespillere
+    - 5 forsvarsspillere(inklusiv målmand)
+
+Spillet foregår i et liga system - dvs alle hold møder hinanden 2 gange (hjemme og ude).
+
+Hver kamp består af 90 minutter. Hvert minut tager 1 sekund.
+
+Hvert minut har 2/15 (13%) chance for en målchance.
+
+Når en målchance opstår, beslutter spillet hvem der skal have boldbesiddelse. Som standard er det som 50/50
+medmindre der er differencer i deres statistiker (som spillerne har lavet inden spillet gik i gang).
+
+Den som får boldbesiddelse laver et angreb, der er 15% chance for at score(med mindre der er differencer)
+
+Hvis der ikke bliver scoret er der 5% chance for at der kommer en kontra(med mindre der er differencer)
+
+På en kontra mulighed er der i 20% chance for at scorer(med mindre der er differencer)
+
