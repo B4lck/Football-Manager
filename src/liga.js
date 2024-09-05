@@ -119,20 +119,20 @@ export class Liga {
                     // Opdater kampstats
                     if (InPossession == Hold1) {
                         kamp.hold1farligeChancer++;
-                        kamp.hold1xG += (100-MålChance)/100;
+                        kamp.hold1xG += (100-MålChance)/1000 * 1.3;
                     } else {
                         kamp.hold2farligeChancer++;
-                        kamp.hold2xG += (100-MålChance)/100;;
+                        kamp.hold2xG += (100-MålChance)/1000 * 1.3;
                     }
                 } else {
                     // Opdater kampstats
                     if (MålChance < 50) {
                         if (InPossession == Hold1) {
                             kamp.hold1farligeChancer++;
-                            kamp.hold1xG += (100-MålChance)/100;;
+                            kamp.hold1xG += (100-MålChance)/1000 * 1.3;
                         } else {
                             kamp.hold2farligeChancer++;
-                            kamp.hold2xG += (100-MålChance)/100;;
+                            kamp.hold2xG += (100-MålChance)/1000 * 1.3;
                         }
                     }
 
@@ -162,10 +162,10 @@ export class Liga {
                         // Opdater kampstats
                         if (InPossession == Hold2) {
                             kamp.hold1farligeChancer++;
-                            kamp.hold1xG += (100-MålChance) / 100;
+                            kamp.hold1xG += (100-MålChance) / 1000 * 1.3;
                         } else {
                             kamp.hold2farligeChancer++;
-                            kamp.hold2xG += (100-MålChance) / 100;
+                            kamp.hold2xG += (100-MålChance) / 1000 * 1.3;
                         }
                     }
                 }
@@ -337,6 +337,8 @@ function Mål(Hold, holdnr, minut, kamp) {
     } else {
         kamp.hold2assister.push(spiller)
     }
+
+    
 }
 
 function opdaterTidslinje(Hold1, Hold2, Mål1, Mål2, Tid) {
@@ -383,10 +385,11 @@ function opdaterKommendeKampe() {
 }
 
 function opdaterResultaterne() {
-    console.log(Liga.spilledeKampe[Liga.spilledeKampe.length - 1])
     let kamp = Liga.spilledeKampe[Liga.spilledeKampe.length - 1];
     let block = document.createElement("div");
     block.classList.add("matchinfo");
+    block.classList.add("onhoverstat");
+    block.kampId = Liga.spilledeKampe.length - 1;
     block.style.background = "linear-gradient(to right, "+ kamp.hold1.hjemmeBaneFarve +", "+ kamp.hold1.hjemmeBaneFarve +", "+ kamp.hold2.udeBaneFarve +", " + kamp.hold2.udeBaneFarve + ")";
     let text = document.createElement("p");
     text.classList.add("invertTextColor");
@@ -396,5 +399,50 @@ function opdaterResultaterne() {
     // Placer korrekt i hieraki
     menu.appendChild(block);
     block.appendChild(text);
+
+    // Sæt stats på kampstat hoveren
+    block.addEventListener("mouseover", (e) => {
+        // Titlen af kampen (holdnavn & scoren)
+        let text = $("kampNavn");
+        text.innerHTML = kamp.hold1.holdNavn + " " + kamp.hold1Mål + " - "+ kamp.hold2Mål + " " + kamp.hold2.holdNavn;
+
+        // Hold 1 målscore liste
+        let hold1målscorelist = $("målscoreListe1");
+        hold1målscorelist.innerHTML = "";
+        for (let målscorer of kamp.hold1målscorer) {
+            let p = document.createElement("p");
+            hold1målscorelist.appendChild(p);
+            p.innerText = målscorer.navn;
+        }
+
+        // Hold 2 målscore liste
+        let hold2målscorelist = $("målscoreListe2");
+        hold2målscorelist.innerHTML = "";
+        for (let målscorer of kamp.hold2målscorer) {
+            let p = document.createElement("p");
+            hold2målscorelist.appendChild(p);
+            p.innerText = målscorer.navn;
+        }
+
+        // Bold besiddelse
+        let hold1boldbesiddelsep = $("boldbesiddelseHold1")
+        let hold2boldbesiddelsep = $("boldbesiddelseHold2")
+        let besiddelse = Math.floor(100*(kamp.hold1boldbesiddelse / (kamp.hold1boldbesiddelse + kamp.hold2boldbesiddelse)))
+        hold1boldbesiddelsep.innerText = besiddelse + "%";
+        hold2boldbesiddelsep.innerText = (100 - besiddelse) + "%";
+
+        // Chancer
+        let hold1chancerp = $("chancerHold1")
+        let hold2chancerp = $("chancerHold2")
+        hold1chancerp.innerText = kamp.hold1farligeChancer;
+        hold2chancerp.innerText = kamp.hold2farligeChancer;
+
+        // xG
+        let hold1xGp = $("xGHold1")
+        let hold2xGp = $("xGHold2")
+        // Afrund xg til 2 decimaler
+        hold1xGp.innerText = Math.floor(kamp.hold1xG * 100) / 100;
+        hold2xGp.innerText = Math.floor(kamp.hold2xG * 100) / 100;
+    })
 
 }

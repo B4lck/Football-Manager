@@ -238,8 +238,11 @@ document.addEventListener("mousemove", (e) => {
     mouseY = e.clientY;
 
     let holdkort = $("holdkort");
+    let kampKort = $("kampKort")
     holdkort.style.left =  mouseX - (16*30 + 2) + "px"; // Offset holdkortet fra musen
     holdkort.style.top = mouseY + 2 + "px";
+    kampKort.style.left =  mouseX + "px"; // Offset holdkortet fra musen
+    kampKort.style.top = (mouseY - 400) + "px";
 })
 
 function onHoverUpdate(objekt) {

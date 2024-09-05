@@ -188,7 +188,7 @@ function fjernFraStat(stat) {
     </div>
 </div>
 <div id="spilSide" class="spilSide hidden">
-    <div class="holdkort" id="holdkort"> 
+    <div class="holdkort" id="holdkort">
         <h2 id="hHoldnavn">Tottenham Hotspurs</h2>
         <div class="hbane">
             <div class="hbanelinje">
@@ -209,6 +209,37 @@ function fjernFraStat(stat) {
             </div>
             <div class="hbanelinje">
                 <div class="spiller"><p id="målmand">Vicario</p></div>
+            </div>
+        </div>
+    </div>
+    <div class="kampKort hidden" id="kampKort">
+        <h2 id="kampNavn">Test - Test</h2>
+        <div class="kampKortStatHolder">
+            <div class="kampKortLinje">
+                <div class="målscoreListe" id="målscoreListe1">
+                    <p>Richarlison Ronaldo</p>
+                    <p>C. Ronaldo</p>
+                    <p>L. Messi</p>
+                    <p>T. Test</p>
+                </div>
+                <div class="målscoreListe" id="målscoreListe2">
+                    <p>K. Havertz</p>
+                </div>
+            </div>
+            <h3>Boldbesiddelse</h3>
+            <div class="kampKortLinje">
+                <p id="boldbesiddelseHold1">50%</p>
+                <p id="boldbesiddelseHold2">50%</p>
+            </div>
+            <h3>Farlige Chancer</h3>
+            <div class="kampKortLinje">
+                <p id="chancerHold1">0</p>
+                <p id="chancerHold2">0</p>
+            </div>
+            <h3>xG</h3>
+            <div class="kampKortLinje">
+                <p id="xGHold1">0</p>
+                <p id="xGHold2">0</p>
             </div>
         </div>
     </div>

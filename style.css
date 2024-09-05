@@ -382,3 +382,68 @@ body:has(.tableFirst:hover) .holdkort {
 .matchinfo > * {
     text-wrap: nowrap;
 }
+
+body:has(.onhoverstat:hover) .kampKort {
+    display: block;
+}
+
+.kampKort {
+    position: fixed;
+    background-color: var(--baggrundsfarve);
+    z-index: 99;
+    min-width: 100px;
+    min-height: 200px;
+    border-radius: 5px;
+    transform: translate(-100%, 0);
+    padding: 0px 20px;
+    white-space: nowrap;
+}
+
+.kampKort > h2 {
+    width: 100%;
+    text-align: center;
+    height: 20px;
+    margin: 10px 0px;
+}
+
+.kampKortLinje {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.kampKort > * {
+    margin-top: 0;
+}
+
+.kampKortStatHolder > h3 {
+    width: 100%;
+    text-align: center;
+}
+
+.målscoreListe {
+    width: 50%!important;
+    text-wrap: wrap;
+}
+
+#målscoreListe1 {
+    text-align: left;
+}
+
+#målscoreListe2 {
+    text-align: right;
+}
+
+.kampKortLinje > p {
+    max-width: 50%!important;
+    text-wrap: wrap;
+}
+
+#KampHoldText {
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+}
