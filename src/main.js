@@ -131,7 +131,7 @@ export function updateTable() {
         let navn = row.insertCell(0);
         navn.innerText = i + ". " + MostPointTeam.holdNavn;
         navn.classList.add("tableFirst")
-        navn.id = "hold" + Liga.hold.indexOf(MostPointTeam);
+        navn.holdId = Liga.hold.indexOf(MostPointTeam);
         navn.onmouseover = function() {onHoverUpdate(navn)};
         //navn.style = "color: " + MostPointTeam.udeBaneFarve;
         row.insertCell(1).innerText = MostPointTeam.point;
@@ -247,7 +247,7 @@ document.addEventListener("mousemove", (e) => {
 
 function onHoverUpdate(objekt) {
     // Det her er noget giga spaghetti kode
-    let hold = Liga.hold[objekt.id[4]];
+    let hold = Liga.hold[objekt.holdId];
     $("hHoldnavn").innerHTML = hold.holdNavn;
 
     // Angribere

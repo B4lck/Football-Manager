@@ -192,6 +192,10 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-color: var(--baggrundsfarve) var(--altBaggrundsfarve);
+    scrollbar-width: thin;
 }
 
 .stilling > h1 {
@@ -204,6 +208,7 @@ td {
     width: 5%;
     text-align: center;
     font-size: 1.3rem;
+    cursor: pointer;
 }
 
 .tableFirst {
@@ -223,7 +228,7 @@ td {
     position: absolute;
     width: 25%;
     height: 40%;
-    bottom: 0px;
+    bottom: 0;
     background-color: var(--baggrundsfarve);
     display: flex;
     align-items: center;
@@ -447,3 +452,4 @@ body:has(.onhoverstat:hover) .kampKort {
     text-align: center;
     white-space: nowrap;
 }
+
